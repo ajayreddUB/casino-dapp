@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Casino Chip DApp</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeaea;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="number"], input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 250px;
+        }
+
+        input[type="number"]:focus, input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .dice {
+            margin: 20px 0;
+        }
+
+        .dice img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Casino Chip DApp</h1>
+    <div class="container">
+      <div class="dice">
+        <img class="img1" src="images/dice7.png" alt="Dice Image">
+      </div>
+      <input type="number" id="bet" placeholder="Enter your bet">
+      <input type="number" id="desiredOutcome" placeholder="Enter desired outcome (1-6)">
+      <button id="play">Roll Dice</button>
+    </div>
+
+    <div class="container">
+      <button id="connectWallet">Connect to Metamask</button>
+      <br>
+      <button id="buyTokens">Buy Tokens</button>
+      <input type="number" id="ethAmount" placeholder="ETH Amount">
+      <br>
+      <button id="withdrawTokens">Withdraw Tokens</button>
+      <input type="number" id="tokenWithdrawAmount" placeholder="Token Amount">
+      <br>
+      <button id="transferTokens">Transfer Tokens</button>
+      <input type="number" id="tokenTransferAmount" placeholder="Token Amount">
+      <input type="text" id="recipientAddress" placeholder="Recipient Address">
+      <br>
+      <button id="withdrawETH">Withdraw ETH</button>
+    </div>
+
+
+
+<script src="js/app.js"></script>   
+</body>
+</html>
