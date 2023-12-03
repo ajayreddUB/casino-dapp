@@ -596,13 +596,13 @@ document.getElementById('buyTokens').onclick = async function () {
 
 document.getElementById('withdrawTokens').onclick = async function () {
 	const tokenAmount = document.getElementById('tokenWithdrawAmount').value;
-	await contract.methods.withdrawTokens(tokenAmount).send({ from: userAccount });
+	await contract.methods.withdrawTokens(web3.utils.toWei(tokenAmount, 'ether')).send({ from: userAccount });
 };
 
 document.getElementById('transferTokens').onclick = async function () {
-	const tokenAmount = document.getElementById('tokenTransferAmount').value;
+	const tokenTrAmount = document.getElementById('tokenTransferAmount').value;
 	const recipient = document.getElementById('recipientAddress').value;
-	await contract.methods.transferTokens(recipient, tokenAmount).send({ from: userAccount });
+	await contract.methods.transferTokens(web3.utils.toWei(recipient, 'ether'), web3.utils.toWei(tokenTrAmount, 'ether')).send({ from: userAccount });
 };
 
 document.getElementById('withdrawETH').onclick = async function () {
