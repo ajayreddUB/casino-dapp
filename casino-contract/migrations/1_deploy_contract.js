@@ -1,25 +1,13 @@
-const casinoChip = artifacts.require("CasinoChip");
-const casinoNFT = artifacts.require("CasinoNFT");
-const casino1155 = artifacts.require("Casino_ERC1155");
+const casinoChip = artifacts.require("../contracts/CasinoChip");
+const casinoNFT = artifacts.require("../contracts/CasinoNFT");
+const casino1155 = artifacts.require("../contracts/CasinoItems");
 
+module.exports = function (deployer, network, accounts) {
+  const initialOwner = accounts[0]; // First account as the initial owner
 
-
-const ExpenseSplit = artifacts.require("../contracts/ExpenseSplit");
-const SharedFunds = artifacts.require("../contracts/SharedFunds"); // Replace with the actual name of your ERC20 contract
-const DebtStatusTokens = artifacts.require("../contracts/DebtStatusTokens"); // Replace with the actual name of your ERC721 contract
-
-module.exports = function (deployer) {
-  deployer.deploy(SharedFunds, 70).then(function () {
-    return deployer.deploy(DebtStatusTokens);
+  deployer.deploy(casinoChip, 1000000).then(function () {
+    return deployer.deploy(casinoNFT, initialOwner); // Pass the initial owner to the constructor
   }).then(function () {
-    return deployer.deploy(ExpenseSplit, DebtStatusTokens.address, SharedFunds.address);
-    // Ensure you provide addresses of the deployed ERC20 and ERC721 contracts above
+    return deployer.deploy(casino1155, casinoChip.address, casinoNFT.address);
   });
-};
-
-
-
-
-module.exports = function (deployer) {
-  deployer.deploy(Casino, 100000);
 };

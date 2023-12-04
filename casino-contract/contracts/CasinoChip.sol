@@ -10,7 +10,7 @@ contract CasinoChip is ERC20 {
 
     constructor(uint256 _initialsuppy) ERC20("CasinoChip", "CCHIP") {
         owner = msg.sender;
-        _mint(msg.sender, _initialsuppy * 10 ** decimals()); 
+        _mint(msg.sender, _initialsuppy * 10 ** decimals());
     }
 
     // Buy tokens with ETH
@@ -20,20 +20,26 @@ contract CasinoChip is ERC20 {
         require(balanceOf(owner) >= amountToBuy, "Not enough tokens available");
         _transfer(owner, sender, amountToBuy);
     }
-    
+
+    function Approve(address Own, address id, uint256 val) external {
+        _approve(Own, id, val);
+    }
 
     // Withdraw tokens and receive ETH back
     function withdrawTokens(address sender, uint256 tokenAmount) external {
         require(balanceOf(sender) >= tokenAmount, "Insufficient token balance");
         _transfer(sender, owner, tokenAmount);
-        payable(sender).transfer((tokenAmount / 10** decimals()) * tokenPrice);
+        payable(sender).transfer((tokenAmount / 10 ** decimals()) * tokenPrice);
     }
-    
+
     // Transfer tokens to another address
-    function transferTokens(address sender, address recipient, uint256 amount) external {
+    function transferTokens(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external {
         _transfer(sender, recipient, amount);
     }
-    
 
     // Allows the contract to receive ETH
     receive() external payable {}

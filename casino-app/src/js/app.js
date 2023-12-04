@@ -1,4 +1,4 @@
-const contractAddress = '0x4590e36A1549bB28FDDE858b4ea275c74B8152c2';
+const contractAddress = '0xD596a3b15fcb0422a0Daf2D73f19cF95aB546cBb';
 const contractABI = [
 	{
 		"inputs": [
@@ -244,120 +244,6 @@ const contractABI = [
 				"type": "address"
 			},
 			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "accounts",
-				"type": "address[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "ids",
-				"type": "uint256[]"
-			}
-		],
-		"name": "balanceOfBatch",
-		"outputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "",
-				"type": "uint256[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "erc20Amount",
-				"type": "uint256"
-			}
-		],
-		"name": "buyNFTWithERC20",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "buyNFTWithETH",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "buyTokens",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "ids",
-				"type": "uint256[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "amounts",
-				"type": "uint256[]"
-			}
-		],
-		"name": "customSafeBatchTransferFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			},
-			{
 				"internalType": "address",
 				"name": "operator",
 				"type": "address"
@@ -372,7 +258,8 @@ const contractABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
+		"type": "function",
+		"constant": true
 	},
 	{
 		"inputs": [],
@@ -385,30 +272,8 @@ const contractABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "betAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "chosenNumber",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "userProvidedSeed",
-				"type": "uint256"
-			}
-		],
-		"name": "rollDice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"type": "function",
+		"constant": true
 	},
 	{
 		"inputs": [
@@ -497,24 +362,6 @@ const contractABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			}
-		],
-		"name": "setPriceofNFT",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bytes4",
 				"name": "interfaceId",
 				"type": "bytes4"
@@ -529,6 +376,165 @@ const contractABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function",
+		"constant": true
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "approveCasinoChip",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "ownerNFT",
+				"type": "address"
+			}
+		],
+		"name": "approveCasinoNFT",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "uri",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function",
+		"constant": true
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function",
+		"constant": true
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "accounts",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			}
+		],
+		"name": "balanceOfBatch",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function",
+		"constant": true
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "erc20Amount",
+				"type": "uint256"
+			}
+		],
+		"name": "buyNFTWithERC20",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "betAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "chosenNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "userProvidedSeed",
+				"type": "uint256"
+			}
+		],
+		"name": "rollDice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "buyTokens",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function",
+		"payable": true
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawTokens",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -555,18 +561,31 @@ const contractABI = [
 				"internalType": "uint256",
 				"name": "tokenId",
 				"type": "uint256"
-			}
-		],
-		"name": "uri",
-		"outputs": [
+			},
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "setPriceofNFT",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "buyNFTWithETH",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function",
+		"payable": true
 	},
 	{
 		"inputs": [],
@@ -578,20 +597,55 @@ const contractABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "tokenAmount",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "amounts",
+				"type": "uint256[]"
 			}
 		],
-		"name": "withdrawTokens",
+		"name": "customSafeBatchTransferFrom",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];
-
 let contract;
 let userAccount;
+
+// Load the contract ABI and address asynchronously
+// fetch('../abis/CasinoItems.json')
+// 	.then(response => response.json())
+// 	.then(data => {
+// 		const contractABI = data.abi;
+// 		const contractAddress = data.networks["11155111"].address;
+
+// 		// Initialize web3 and the contract after fetching ABI and address
+// 		if (typeof window.ethereum !== 'undefined') {
+// 			window.web3 = new Web3(window.ethereum);
+// 			contract = new web3.eth.Contract(contractABI, contractAddress);
+// 		} else {
+// 			console.log('Metamask not found. Install or enable Metamask.');
+// 		}
+// 	})
+// 	.catch(error => console.error('Error loading ABI:', error));
+
+
+// let contract;
+// let userAccount;
 
 window.addEventListener('load', function () {
 	if (typeof window.ethereum !== 'undefined') {
@@ -613,6 +667,14 @@ async function loadNFTs() {
 		}
 	}
 }
+document.getElementById('approveCasinoChip').onclick = async function () {
+	const amount = document.getElementById('chipAmount').value;
+	await contract.methods.approveCasinoChip(web3.utils.toWei(amount, 'ether')).send({ from: userAccount });
+};
+
+document.getElementById('approveCasinoNFT').onclick = async function () {
+	await contract.methods.approveCasinoNFT(userAccount).send({ from: userAccount });
+};
 
 async function getTokenURIForNFT(nftId) {
 	// Implement this function based on how your contract stores or retrieves NFT URIs
@@ -649,6 +711,19 @@ document.getElementById('connectWallet').onclick = async function () {
 		console.error("Error connecting to MetaMask:", error);
 	}
 };
+// document.getElementById('connectWallet').onclick = async function () {
+// 	// Your existing logic for connecting wallet
+// 	// Ensure contract is initialized before proceeding
+// 	if (contract) {
+// 		try {
+// 			// Your existing logic
+// 		} catch (error) {
+// 			console.error("Error connecting to MetaMask:", error);
+// 		}
+// 	} else {
+// 		console.log('Contract not initialized. Please wait or check your setup.');
+// 	}
+// };
 document.getElementById('rollDice').onclick = async function () {
 	const betAmount = document.getElementById('bet').value;
 	const betNumber = document.getElementById('desiredOutcome').value;
