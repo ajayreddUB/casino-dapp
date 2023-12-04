@@ -14,31 +14,33 @@ contract CasinoChip is ERC20 {
     }
 
     // Buy tokens with ETH
-    function buyTokens() external payable {
+    function buyTokens(address sender) external payable {
         require(msg.value > 0, "You need to send some Ether");
-        uint256 amountToBuy = (msg.value / tokenPrice)* 10 ** decimals();
+        uint256 amountToBuy = (msg.value / tokenPrice) * 10 ** decimals();
         require(balanceOf(owner) >= amountToBuy, "Not enough tokens available");
-        _transfer(owner, msg.sender, amountToBuy);
+        _transfer(owner, sender, amountToBuy);
     }
+    
 
     // Withdraw tokens and receive ETH back
-    function withdrawTokens(uint256 tokenAmount) external {
-        require(balanceOf(msg.sender) >= tokenAmount, "Insufficient token balance");
-        _transfer(msg.sender, owner, tokenAmount);
-        payable(msg.sender).transfer(((tokenAmount)/10** decimals()) * tokenPrice);
+    function withdrawTokens(address sender, uint256 tokenAmount) external {
+        require(balanceOf(sender) >= tokenAmount, "Insufficient token balance");
+        _transfer(sender, owner, tokenAmount);
+        payable(sender).transfer((tokenAmount / 10** decimals()) * tokenPrice);
     }
-
+    
     // Transfer tokens to another address
-    function transferTokens(address recipient, uint256 amount) external {
-        _transfer(msg.sender, recipient, amount);
+    function transferTokens(address sender, address recipient, uint256 amount) external {
+        _transfer(sender, recipient, amount);
     }
+    
 
     // Allows the contract to receive ETH
     receive() external payable {}
 
     // Withdraw ETH from the contract (only owner)
-    function withdrawETH() external {
-        require(msg.sender == owner, "Only the owner can withdraw ETH");
+    function withdrawETH(address sender) external {
+        require(sender == owner, "Only the owner can withdraw ETH");
         payable(owner).transfer(address(this).balance);
     }
 }
